@@ -175,6 +175,9 @@ const config: StorybookConfig = {
     docs: {
         autodocs: 'tag',
     },
+    features: {
+        docgenServer: false,
+    },
     storySorts: [{ method: 'alphabetical', order: ['Lemon UI', ['Overview', 'Utilities', 'Icons'], 'Components', 'Forms', ['Field'], 'Filters', 'Layout'] }],
 }
 
