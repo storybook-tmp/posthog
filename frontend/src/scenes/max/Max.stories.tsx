@@ -559,10 +559,8 @@ export const ThreadWithOpenedSuggestionsMobile: Story = {
         testOptions: {
             waitForLoadersToDisappear: false,
         },
-        viewport: {
-            defaultViewport: 'mobile2',
-        },
     },
+    globals: { viewport: { value: 'mobile2' } },
 }
 
 export const ThreadWithOpenedSuggestions: Story = {

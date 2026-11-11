@@ -128,10 +128,12 @@ const preview: Preview = {
             ),
         },
     },
+    initialGlobals: {
+        theme: 'light',
+    },
     globalTypes: {
         theme: {
             description: '',
-            defaultValue: 'light',
             toolbar: {
                 title: 'Theme',
                 items: [

@@ -30,7 +30,7 @@ export const ConnectionLost: Story = {
 
 export const ConnectionLostNarrow: Story = {
     ...ConnectionLost,
-    parameters: { viewport: { defaultViewport: 'small' } },
+    globals: { viewport: { value: 'small' } },
     render: (args) => (
         <div className="w-130 max-w-full p-4">
             <RunAlertActivity {...args} />

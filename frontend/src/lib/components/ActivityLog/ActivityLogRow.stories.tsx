@@ -90,7 +90,8 @@ export const DashboardChanges: Story = {
 
 export const NarrowDashboardChanges: Story = {
     ...DashboardChanges,
-    parameters: { layout: 'padded', viewport: { defaultViewport: 'tablet' } },
+    parameters: { layout: 'padded' },
+    globals: { viewport: { value: 'tablet' } },
     decorators: [
         (Story) => (
             <div className="w-full max-w-lg">

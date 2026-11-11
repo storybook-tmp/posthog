@@ -580,13 +580,12 @@ export const Empty: Story = {
 // Below `lg` (1024px) the scene collapses to a single column; 568px lands in the mobile branch.
 const MOBILE_VIEWPORT = { width: 568, height: 812 }
 const MOBILE_PARAMETERS = {
-    viewport: {
-        defaultViewport: 'mobile2',
-    },
     testOptions: { viewport: MOBILE_VIEWPORT },
 }
+const MOBILE_GLOBALS = { viewport: { value: 'mobile2' } }
 
 export const MobileComposer: Story = {
+    globals: MOBILE_GLOBALS,
     parameters: {
         ...MOBILE_PARAMETERS,
         featureFlags: WITH_POSTHOG_AI_ACCESS,
@@ -595,6 +594,7 @@ export const MobileComposer: Story = {
 
 // Mobile: the new-task composer is the single full-screen column.
 export const MobileNewTask: Story = {
+    globals: MOBILE_GLOBALS,
     parameters: {
         ...MOBILE_PARAMETERS,
         pageUrl: taskNewUrl(),
@@ -603,6 +603,7 @@ export const MobileNewTask: Story = {
 }
 
 export const MobileTaskSelected: Story = {
+    globals: MOBILE_GLOBALS,
     parameters: {
         ...MOBILE_PARAMETERS,
         pageUrl: taskDetailUrl('task-3'),
