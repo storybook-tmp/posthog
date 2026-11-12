@@ -2,6 +2,7 @@ import type { StorybookConfig } from '@storybook/react-vite'
 import tailwindcss from '@tailwindcss/vite'
 import { fileURLToPath } from 'node:url'
 import * as path from 'path'
+import { dirname } from 'path'
 import { mergeConfig, type Rollup } from 'vite'
 
 import { zodJitlessPlugin } from '../../../frontend/plugins/vite-zod-jitless-plugin.ts'
@@ -56,7 +57,7 @@ const storyRootsOverride = (process.env.STORYBOOK_STORIES ?? '')
 const config: StorybookConfig = {
     stories: (storyRootsOverride.length > 0 ? storyRootsOverride : DEFAULT_STORY_ROOTS).map(createStoriesPathFor),
 
-    addons: ['@storybook/addon-docs', '@storybook/addon-links', '@storybook/addon-a11y'],
+    addons: [getAbsolutePath('@storybook/addon-docs'), getAbsolutePath('@storybook/addon-links'), getAbsolutePath('@storybook/addon-a11y')],
 
     staticDirs: [
         'public',
@@ -76,7 +77,7 @@ const config: StorybookConfig = {
     ],
 
     framework: {
-        name: '@storybook/react-vite',
+        name: getAbsolutePath('@storybook/react-vite'),
         options: {},
     },
 
@@ -174,6 +175,15 @@ const config: StorybookConfig = {
     docs: {
         autodocs: 'tag',
     },
+    storySorts: [{ method: 'alphabetical', order: ['Lemon UI', ['Overview', 'Utilities', 'Icons'], 'Components', 'Forms', ['Field'], 'Filters', 'Layout'] }],
 }
 
 export default config
+
+;/**
+ * This function is used to resolve the absolute path of a package.
+ * It is needed in projects that are set up within a monorepo.
+ */
+function getAbsolutePath(value: string): any {
+    return dirname(fileURLToPath(import.meta.resolve(`${value}/package.json`)));
+}

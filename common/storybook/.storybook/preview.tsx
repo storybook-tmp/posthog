@@ -113,18 +113,6 @@ const preview: Preview = {
         },
         options: {
             showPanel: false,
-            storySort: {
-                method: 'alphabetical',
-                order: [
-                    'Lemon UI',
-                    ['Overview', 'Utilities', 'Icons'],
-                    'Components',
-                    'Forms',
-                    ['Field'],
-                    'Filters',
-                    'Layout',
-                ],
-            },
         },
         docs: {
             source: { state: 'closed' },

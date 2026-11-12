@@ -25,7 +25,7 @@
         "@posthog/brand": "catalog:",
         "@posthog/icons": "catalog:",
         "@posthog/products-error-tracking": "workspace:*",
-        "@storybook/react": "*",
+        "@storybook/react": "^11.0.0-beta.2",
         "@testing-library/jest-dom": "*",
         "@testing-library/react": "*",
         "@testing-library/user-event": "*",
