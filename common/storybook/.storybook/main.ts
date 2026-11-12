@@ -176,6 +176,8 @@ const config: StorybookConfig = {
         autodocs: 'tag',
     },
     storySorts: [{ method: 'alphabetical', order: ['Lemon UI', ['Overview', 'Utilities', 'Icons'], 'Components', 'Forms', ['Field'], 'Filters', 'Layout'] }],
+    // QA workaround: server-side docgen times out in this sandbox (see upgrade notes); use builder docgen
+    features: { docgenServer: false },
 }
 
 export default config
